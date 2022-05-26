@@ -1,0 +1,29 @@
+<!-- 실습6 rowspan colspan-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- table / table>tr*3>td*3 (emmet)-->
+  <!-- border : 선 두께 width : 표의 너비 height : 표의 높이 cellspacing : 셀과 셀의 간격 -->
+  <!-- align="center" : 가운데 정렬 / align : 정렬 -->
+  <table border="1" cellspacing="0" width="500" height="500">
+    <tr align="center">
+      <td rowspan="2" bgcolor="#ff0000">4</td>
+      <td colspan="2" bgcolor="#ffff00">1</td>
+    </tr>
+    <tr align="center">
+      <td width="200" height="200">
+        <img src="IU.jpg" alt="아이유" width="100%"></td>
+      <td rowspan="2" bgcolor="#00ff00">2</td>
+    </tr>
+    <tr align="center">
+      <td colspan="2" bgcolor="#0000ff">3</td>
+    </tr>
+  </table>
+</body>
+</html>
