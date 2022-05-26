@@ -1,0 +1,77 @@
+<!-- 실습7 form input select textarea-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <h1>정보 입력</h1>
+</head>
+<body>
+  <form action="">
+    <table border="0" cellspacing="0" width="500" height="500">
+      <tr>
+        <td><b>아이디</b><br>
+          <input type="text" placeholder="xxxxxx@naver.com" required size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>비밀번호</b><br>
+          <input type="password" name="" id="" required size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>비밀번호 재확인</b><br>
+          <input type="password" name="" id="" required size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>이름</b><br>
+          <input type="text" minlength="1" maxlength="8"  required pattern='^[가-힣a-zA-Z]*' value='' title="이름형식으로 입력해주세요" size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>생년월일</b><br>
+          <input type="date" name="" id="" required size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>성별</b><br>
+          <select name="gender">
+            <option value="none">성별</option>
+            <option value="man">남자</option>
+            <option value="woman">여자</option>
+            <option value="nochoice">선택안함</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><b>본인 확인 이메일</b><br>
+          <input type="text" placeholder="선택입력" size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><b>휴대전화</b><br>
+          <select name="tel" >
+            <option value="korea">대한민국 +82</option>
+            <option value="japan">일본 +81</option>
+            <option value="china">중국 +86</option>
+            <option value="vietnam">베트남 +84</option>
+          </select>
+          <input type="text" required>
+          <button type="submit">인증번호 받기</button>
+        </td>
+      </tr>
+      <tr>
+        <td><b>인증번호 입력</b><br>
+          <input type="text" required placeholder="인증번호 입력하세요" size="50">
+        </td>
+      </tr>
+      <tr>
+        <td><button type="submit">가입하기</button></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
