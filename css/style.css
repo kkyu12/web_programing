@@ -1,0 +1,87 @@
+div {
+  background-color: aqua;
+  height: 300px;
+}
+
+body {
+  /* background-color: black; */
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+p {
+  color: skyblue;
+}
+
+/* 점을 찍으면 클래스를 뜻함 */
+.red-text {
+  color: red;
+}
+
+.yellow-text {
+  color: yellow;
+}
+
+.big-size {
+  font-size: 50px;
+}
+
+.border {
+  border-style: dashed;
+  border-width: 1px;
+}
+
+/* #이 아이디 지정 아이디 셀렉터 하나밖에 없으므로 잘 안쓰임*/
+#div1 {
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+a:hover {
+  color: white;
+}
+/* 원하는 스타일을 쭈욱 쓴다 */
+
+/* 윗줄 */
+.overline-text {
+  text-decoration: overline;
+}
+
+/* 밑줄 */
+.underline-text {
+  text-decoration: underline;
+}
+
+/* 대문자로 바꾸기 */
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+/* 소문자로 바꾸기 */
+.lowercase-text {
+  text-transform: lowercase;
+}
+
+/* 들여쓰기 */
+.indent-text {
+  text-indent: 15%;
+}
+
+/* 글자체 */
+.style-font {
+  font-style: italic;
+}
+
+/* 글자 크기 */
+.size-font {
+  font-size:xx-large ;
+}
+
+/* 줄간격 */
+.height-line {
+  line-height: 200%;
+}
