@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- html의 규약을 설명하는 문서에는 있는 없어도 작동가능-->
+<html lang="en">
+  <!-- 영어 기준으로 작성되어있다 -->
+<head>
+  <!-- 메타데이터는 정보를 브라우저에 보낼 때 정보를 담고있음 -->
+  <!-- utf-8이면 거의 모든 언어를 사용할 수 있음 -->
+  <!-- 인터넷 익스플로어 호환을 위해 사용 -->
+  <!-- 모바일 등 사용기기에 크기에 맞춰서 출력 -->
+  <!-- description : 검색시 페이지 제목밑에 출력, content에 추가 설명 입력-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="비디오 태그 연습">
+  <title>VIDEO</title>
+</head>
+<body>
+  <div>
+  <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" controls autoplay muted width="600"></video>
+  <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" controls autoplay muted width="600"></video>
+  <!-- controls를 넣어야 밑에 컨트롤창이 생김 autoplay : 자동재생 (크롬기반에서 사용불가)-->
+  <!-- 모바일에서 동영상을 자동재생되면 데이터사용량이 높아지므로 자동재생불가 / 사용자의 프라이버시-->
+  <!-- muted 소리없이 / autoplay+muted 로 자동재생 사용가능 -->
+  </div>
+  <div>
+    <!-- 유튜브 -->
+    <iframe width="600" height="400" src="https://www.youtube.com/embed/kj33guVJuso" title="오준석의 생존코딩" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="600" height="400" src="https://www.youtube.com/embed/kj33guVJuso" title="오준석의 생존코딩" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</body>
+</html>
