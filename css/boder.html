@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>border</title>
+</head>
+<body>
+  <style>
+    div {
+      margin-top: 15px;
+      width: 500px;
+      padding: 10px;
+    }
+
+    body {
+      margin: 0;
+      /* body에 원래 margin이 있음 */
+    }
+
+    .border-dotted {
+      border-style: dotted;
+      border-color: red;
+      /* border-radius : 모서리가 둥글게 */
+      border-radius: 10px;
+      /* border-width : 모서리 두께 */
+      border-width: 5px;
+    }
+
+    /* .border-dashed {
+      border-style: dashed;
+    } */
+
+    .border-dashed {
+      border: 3px black dashed;
+    }
+
+    .border-solid {
+      border-style: solid;
+      margin: 10px 30px;
+    }
+  </style>
+  <div class="border-dotted">div1</div>
+  <div class="border-dashed">div2</div>
+  <div class="border-solid">div3</div>
+</body>
+</html>
