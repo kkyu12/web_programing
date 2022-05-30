@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice01</title>
+</head>
+<body>
+  <style>
+    .container {
+      width: 300px;
+      height: 330px;
+      position: relative;
+      left : 30px;
+      top: 30px;
+      border: 1px black solid;
+    }
+
+    .div1 {
+      display: inline-block;
+      border: 1px black solid;
+      width: 198px;
+      height: 108px;
+      background-color: blue;
+      text-align: center;
+      line-height: 108px;
+      /* 원래는 flex? */
+    }
+
+    .div2 {
+      display: inline-block;
+      position : absolute;
+      border: 1px black solid;
+      width: 98px;
+      height: 218px;
+      background-color: greenyellow;
+      text-align: center;
+      line-height: 218px;
+    }
+
+    .div3 {
+      display: inline-block;
+      position : absolute;
+      border: 1px black solid;
+      width: 198px;
+      height: 108px;
+      left: 100px;
+      top: 220px;
+      background-color: hotpink;
+      text-align: center;
+      line-height: 108px;
+    }
+
+    .div4 {
+      display: inline-block;
+      position : absolute;
+      border: 1px black solid;
+      width: 98px;
+      height: 218px;
+      top: 110px;
+      left: 0px;
+      background-color: red;
+      text-align: center;
+      line-height: 218px;
+    }
+
+    .pic {
+      display: inline-block;
+      position : relative;
+      border: 1px black solid;
+      width: 98px;
+      height: 108px;
+      left: 100px;
+      background-color: white;
+    }
+  </style>
+  <div class="container">
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div class="div3">3</div>
+    <div class="div4">4</div>
+    <div class="pic"><img src="../html/IU.jpg" alt="아이유" width="98px" height="108px"></div>
+  </div>
+</body>
+</html>
