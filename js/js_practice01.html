@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이름 입력</title>
+</head>
+<body>
+  <script>
+    // 잘 되는지 헷갈리면 f12 콘솔에서 해보기
+    let text;
+    while (true) {
+      text = prompt('이름을 입력해주세요');
+      // == 과 === 이 있습니다
+      // 1 == "1" 결과 true / 1 === "1" 결과 false 타입까지 비교시 === 로 비교
+      if (text != null) {
+        console.log(text);
+        // alert(text + '님 안녕하세요.');
+        alert(`${text}님 안녕하세요.`)
+        break;
+      }
+    }
+  </script>
+
+<!-- <script>
+  // 교수님 버전
+  // 이름 입력
+  let name = prompt('이름을 입력해 주세요');
+
+  // 만약 이름이 입력이 안 되었다면
+  if (name === '') {
+    name = prompt('입력해 주세요!!');
+  }
+
+  console.log(name);
+  alert(`${name}님 안녕하세요`);
+
+</script> -->
+</body>
+</html>
