@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    button {
+      font-size: 25px;
+      width: 200px;
+      height: 50px;
+      margin: 5px;
+      background-color: gray;
+      color: white;
+    }
+  </style>
+  <button onmousemove="getclick1()" id="html">html</button>
+  <button onmousemove="getclick2()" id="css">css</button>
+  <button onmousemove="getclick3()" id="js">javascript</button>
+  <script>
+    let target1 = document.getElementById('html');
+    let target2 = document.getElementById('css');
+    let target3 = document.getElementById('js');
+    
+    function getclick1() {
+      target1.style.backgroundColor = 'white';
+      target1.style.color = 'black';
+      target2.style.backgroundColor = 'gray';
+      target2.style.color = 'white';
+      target3.style.backgroundColor = 'gray';
+      target3.style.color = 'white';
+    }
+    
+    function getclick2() {
+      target1.style.backgroundColor = 'gray';
+      target1.style.color = 'white';
+      target2.style.backgroundColor = 'white';
+      target2.style.color = 'black';
+      target3.style.backgroundColor = 'gray';
+      target3.style.color = 'white';
+    }
+
+    function getclick3() {
+      target1.style.backgroundColor = 'gray';
+      target1.style.color = 'white';
+      target2.style.backgroundColor = 'gray';
+      target2.style.color = 'white';
+      target3.style.backgroundColor = 'white';
+      target3.style.color = 'black';
+    }
+  </script>
+</body>
+</html>
