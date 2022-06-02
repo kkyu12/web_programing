@@ -11,7 +11,9 @@
     div {
       font-size: 50pt;
       font-weight: bold;
+      text-align: center;
     }
+
     button {
       margin: 3px;
     }
@@ -20,29 +22,28 @@
     let text;
     text = prompt('텍스트값을 입력해 주세요');
     if (text != null && text != '') {
-      document.write('<center><div id="target">' + text + '</div></center><br>');
-      document.write('<center><button onclick="red()">빨강</button>');
+      document.write('<div id="target">' + text + '</div><br>');
+      document.write('<div><button onclick="red()">빨강</button>');
       document.write('<button onclick="blue()">파랑</button>');
-      document.write('<button onclick="green()">초록</button></center>');
+      document.write('<button onclick="green()">초록</button></div>');
     } else {
       alert('값을 입력해 주세요')
     }
 
+    let $target = document.getElementById('target');
+
     function red() {
       alert('빨강색으로 변경됩니다.')
-      let $target = document.getElementById('target');
       $target.style.color = 'red';
     }
 
     function blue() {
       alert('파랑색으로 변경됩니다.')
-      let $target = document.getElementById('target');
       $target.style.color = 'blue';
     }
 
     function green() {
       alert('초록색으로 변경됩니다.')
-      let $target = document.getElementById('target');
       $target.style.color = 'green';
     }
   </script>
