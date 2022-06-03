@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 활용</title>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    button {
+      font-size: 25px;
+      width: 200px;
+      height: 50px;
+      margin: 5px;
+      background-color: gray;
+      color: white;
+    }
+  </style>
+  <button id="html">html</button>
+  <button id="css">css</button>
+  <button id="js">javascript</button>
+  <script>
+    $(function () {
+      $('#html').click(function () {
+        $(this).css('color','black')
+        .css('background-color','white');
+        $('#css').css('color','white')
+        .css('background-color','gray');
+        $('#js').css('color','white')
+        .css('background-color','gray');
+      });
+
+      $('#css').click(function () {
+        $(this).css('color','black')
+        .css('background-color','white');
+        $('#html').css('color','white')
+        .css('background-color','gray');
+        $('#js').css('color','white')
+        .css('background-color','gray');
+      });
+
+      $('#js').click(function () {
+        $(this).css('color','black')
+        .css('background-color','white');
+        $('#html').css('color','white')
+        .css('background-color','gray');
+        $('#css').css('color','white')
+        .css('background-color','gray');
+      });
+    });
+  </script>
+</body>
+</html>
