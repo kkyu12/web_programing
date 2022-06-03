@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    #container {
+      position: absolute;
+      width: 750px;
+      height: 569px;
+      border: 1px black solid;
+      left: 25px;
+      top: 25px;
+      background-color: green;
+    }
+
+    #pika {
+      position: relative;
+      width: 75px;
+    }
+  </style>
+  <div id="container">
+    <img id="pika" src="../assets/pipika.gif" alt="피카츄">
+  </div>
+  <script>
+    let $pika = $('#pika');
+    const BG_WIDTH = 750;
+    const BG_HEIGHT = 569;
+    const MOVE = 25;
+    const PIKA_WIDTH = 75;
+    const PIKA_HEIGHT = 69;
+    $('body').keydown(function (event) {
+      let top = Number($pika.css('top').replace('px',''));
+      let bottom = top + PIKA_HEIGHT;
+      let left = Number($pika.css('left').replace('px',''));
+      let right = left + PIKA_WIDTH;
+      switch (event.key) {
+        case 'ArrowUp' :
+          if (top - MOVE < 0) {
+            return;
+          }
+          $pika.css({top: '-=25px'});
+          break;
+        case 'ArrowDown' :
+          if (bottom + MOVE > BG_HEIGHT) {
+            return;
+          }
+          $pika.css({top: '+=25px'});
+          break;
+        case 'ArrowLeft' :
+          if (left - MOVE < 0) {
+            return;
+          }
+          $pika.css({left: '-=25px'});
+          break;
+        case 'ArrowRight' :
+          if (right + MOVE > BG_WIDTH) {
+            return;
+          }
+          $pika.css({left: '+=25px'});
+          break;
+      }
+    })
+  </script>
+</body>
+</html>
