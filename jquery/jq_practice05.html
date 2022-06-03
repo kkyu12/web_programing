@@ -30,32 +30,32 @@
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>1111</td>
+      <td class="title">1111</td>
       <td>11:11:11</td>
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>2222</td>
+      <td class="title">2222</td>
       <td>11:11:11</td>
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>3333</td>
+      <td class="title">3333</td>
       <td>11:11:11</td>
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>4444</td>
+      <td class="title">4444</td>
       <td>11:11:11</td>
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>5555</td>
+      <td class="title">5555</td>
       <td>11:11:11</td>
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>6666</td>
+      <td class="title">6666</td>
       <td>11:11:11</td>
     </tr>
   </table>
@@ -63,45 +63,34 @@
     <input id="log_button" type="button" value="로그">
   </div>
   <script>
+    // 전체 체크에 따른 단일 체크 제어
     $('#all').click(function () {
       if ($('input:checkbox[name=all]:checked').is(':checked')) {
         $('input[name=chk]:checkbox').prop('checked', true);
       } else {
         $('input[name=chk]:checkbox').prop('checked', false);
-      };
+      }
     });
-    let total = Number($('input:checkbox[name=chk]:checked').length);
+    
+    // 단일 체크에 따른 전체 체크 제어
+    $("input:checkbox[name=chk]").click(function() {
+      if ($('input:checkbox[name=chk]:checked').length === $('input:checkbox[name=chk]').length) {
+        $('#all').prop('checked', true);
+      } else {
+        $('#all').prop('checked', false);
+      }
+    });
+
+    // 체크한 제목 로그 찍기
     $('#log_button').click(function () {
+      let total = Number($('input:checkbox[name=chk]:checked').length);
       if (total === 0) {
         alert('선택된 내용이 없습니다')
       } else {
-        console.log();
+        $('input:checkbox[name=chk]:checked').each(function() {
+          console.log($(this).parent().next().text());
+        });
       }
-      // input 태크 중에 checkbox 타입 중에 name 이 chk 인 것만 골라라
-      let $checkBoxes = $('input:checkbox[name=chk]');
-      console.log(`체크박스 수 : ${$checkBoxes.length}`);
-
-      // name이 chk 인 체크박스의 속성 checked 를 붙여라 (전체 선택)
-      // $('input[name=chk]:checkbox').prop('checked', true);
-
-      // 체크된 것이 있는지?
-      if ($('input:checkbox[name=chk]:checked').length > 0) {
-
-      }
-      
-      // 내부 순환
-      let checkedSize = 0;
-      $('input[name=chk]:checkbox').each(function () {
-        console.log(this);
-        // this.checked = true;
-        // $(this).prop('checked', true);
-
-      // 개별 체크
-      if ($(this).is(':checked')) {
-        checkedSize++;
-        console.log(checkedSize);
-        }
-      });
     });
   </script>
 </body>
