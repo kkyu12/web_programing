@@ -2,6 +2,11 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: orange;
+}
+
 .container {
   width: 100%;
   height: 600px;
@@ -40,6 +45,15 @@ body {
   font-size: x-large;
 }
 
+#madeBy {
+  position: absolute;
+  color: black;
+  font-family: 'Kanit', sans-serif;
+  right: 20px;
+  top: 20px;
+  font-size: x-large;
+}
+
 .background {
   position: absolute;
   background-image: url('../assets/bg.jpg');
@@ -59,4 +73,32 @@ body {
   }
 }
 
-/* font-family: 'Righteous', cursive; */
+#gameStrat {
+  font-family: 'Righteous', cursive;
+  position: absolute;
+  left: 38%;
+  top: 250px;
+  font-size: 72px;
+}
+
+#gameOver{
+  font-family: 'Righteous', cursive;
+  position: absolute;
+  left: 38%;
+  top: 250px;
+  font-size: 72px;
+}
+
+#reStart {
+  font-family: 'Righteous', cursive;
+  position: absolute;
+  left: 36%;
+  font-size: 32px;
+}
+
+#start {
+  font-family: 'Righteous', cursive;
+  position: absolute;
+  left: 36%;
+  font-size: 32px;
+}
