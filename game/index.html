@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>PIKA! PIKA!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <div class="container">
     <div class="background"></div>
@@ -24,52 +22,19 @@
     <img id="pokeball" src="assets/pokeball.png" alt="pokeball">
     <img id="killer" src="assets/p.png" alt="killer">
     <div id="score">SCORE : 0</div>
+    <div id="madeBy">Made by kkyu</div>
   </div>
-
+  <div id="gameOver">Game Over
+    <div id="reStart"><a href="#" onclick="game()">RESTART</a></div>
+  </div>
+  <div id="gameStrat">Game Start
+    <div id="start"><a href="#" onclick="game()">STRAT</a></div>
+  </div>
   <script>
     let isJumping = false;
     let isGameOver = false;
     let score = 0;
     let isKillerStart = false;
-
-    function pokeballDown() {
-      let pokeballLeft = Number($('#pokeball').css('left').replace('px', ''));
-      let killerRight = Number($('#killer').css('left').replace('px', '')) + 100;
-
-      if (isKillerStart && pokeballLeft <= killerRight) {
-        score += 200;
-
-        setScore(score);
-
-        // 킬러 원래자리로
-        killerInit();
-        isKillerStart = false;
-
-        // 몬스터볼 없애고
-        $('#pokeball').stop().hide();
-        pokeballInit();
-
-        // 몬스터볼 출현
-        setTimeout(pokeballStart, getRandomInt(500, 1000));
-      }
-    }
-
-    function pikaDown() {
-      if (isGameOver) {
-        return;
-      }
-
-      let pikaRight = 130;
-
-      let pokeballLeft = Number($('#pokeball').css('left').replace('px', ''));
-
-      if (pokeballLeft <= pikaRight && isJumping == false) {
-        console.log('die');
-        // alert('Game Over');
-        $('#pokeball').stop();
-        isGameOver = true;
-      }
-    }
 
     function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -77,7 +42,107 @@
       return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
     }
 
+    function gameStrat() {
+      $('#gameStrat').show();
+      $('#start').show();
+      $('#madeBy').show();
+      $('#gameOver').hide();
+      $('#reStart').hide();
+      $('#pika').css('left', '45%');
+    }
+
+    function game() {
+      $('#pika').show().animate({ left: '30px' });
+      score = 0;
+      setScore(score);
+      isGameOver = false;
+      pokeballInit();
+      $('#gameStrat').hide();
+      $('#start').hide();
+      $('#gameOver').hide();
+      $('#reStart').hide();
+      $('#madeBy').hide();
+      gaming();
+    }
+
+    function gaming() {
+      while (!(isGameOver)) {
+        pokeballStart();
+        // 충돌 체크
+        setInterval(pikaDown, 10);
+        // 몬스터볼 죽었나 체크
+        setInterval(pokeballDown, 10);
+        break;
+      }
+    }
+
+    function gameOver() {
+      $('#pika').hide();
+      $('#pokeball').show().css('left', '50px');
+      $('#gameOver').show();
+      $('#reStart').show();
+      $('#madeBy').show();
+    }
+
+    // 점수 추가
+    function setScore(score) {
+      $('#score').text(`SCORE : ${score}`);
+    }
+
+    // 몬스터볼 발사
+    function pokeballStart() {
+      let speed = getRandomInt(1000, 2000);   // 1~2초 사이
+      let respawnTime = getRandomInt(1000, 2000); // 1~2초 사이
+
+      $('#pokeball').animate({ left: '-130px' }, speed, function () {
+        if (isGameOver == false) {
+          score += 100;
+          setScore(score);
+        }
+        // 왼쪽 끝까지 가면 초기 위치로 이동
+        pokeballInit();
+        // 다시 출발
+        setTimeout(pokeballStart, respawnTime);
+      });
+    }
+
+    // 몬스터볼 원래 위치로
+    function pokeballInit() {
+      $('#pokeball').css('right', '-150px').css('left', '').show();
+    }
+
+    // 피카츄 점프
+    function jump() {
+      // 연타 방지
+      if (isJumping) {
+        return;
+      }
+      isJumping = true;
+      $('#pika').animate({ bottom: '+=200px' }, 'fast')
+        .animate({ bottom: '-=200px' }, 1000, function () {
+          isJumping = false;
+        });
+    }
+
+    // 피카츄 다운
+    function pikaDown() {
+      if (isGameOver) {
+        return;
+      }
+      let pikaRight = 130;
+      let pokeballLeft = Number($('#pokeball').css('left').replace('px', ''));
+      if (pokeballLeft <= pikaRight && isJumping == false) {
+        console.log('die');
+        // alert('Game Over');
+        $('#pokeball').stop().hide();
+        isGameOver = true;
+        gameOver();
+      };
+    };
+
+    // 번개 발사
     function killerStart() {
+      // 중복 발사 막음
       if (isKillerStart) {
         return;
       }
@@ -91,51 +156,36 @@
       });
     }
 
+    // 번개 원래 위치로
     function killerInit() {
       $('#killer').css('left', '220px').stop().hide();
     }
 
-    function pokeballStart() {
-      let speed = getRandomInt(1000, 2000);   // 1~2초 사이
-      let respawnTime = getRandomInt(1000, 2000); // 1~2초 사이
+    // 몬스터볼 + 번개
+    function pokeballDown() {
+      let pokeballLeft = Number($('#pokeball').css('left').replace('px', ''));
+      let killerRight = Number($('#killer').css('left').replace('px', '')) + 100;
 
-      $('#pokeball').animate({ left: '-120px' }, speed, function () {
-        if (isGameOver == false) {
-          score += 100;
-          setScore(score);
-        }
+      if (isKillerStart && pokeballLeft <= killerRight) {
+        score += 200;
+        setScore(score);
 
-        // 왼쪽 끝까지 가면 초기 위치로 이동
+        // 킬러 원래자리로
+        killerInit();
+        isKillerStart = false;
+
+        // 몬스터볼 없애고
+        $('#pokeball').stop().hide();
         pokeballInit();
 
-        // 1초 후에 다시 출발
-        setTimeout(pokeballStart, respawnTime);
-      });
-    }
-
-    function setScore(score) {
-      $('#score').text(`SCORE : ${score}`);
-    }
-
-    function pokeballInit() {
-      $('#pokeball').css('right', '-150px').css('left', '').show();
-    }
-
-    function jump() {
-      // 연타 방지
-      if (isJumping) {
-        return;
+        // 몬스터볼 출현
+        setTimeout(pokeballStart, 2000);
       }
-
-      isJumping = true;
-      $('#pika').animate({ bottom: '+=200px' }, 'fast')
-        .animate({ bottom: '-=200px' }, 1000, function () {
-          isJumping = false;
-        });
     }
 
     // onload
     $(function () {
+      gameStrat();
       $('body').keydown(function (event) {
         switch (event.key) {
           case ' ':
@@ -144,20 +194,9 @@
           case 'Control':
             killerStart();
             break;
-        }
+        };
       });
-
-      // 몬스터볼 출발
-      pokeballStart();
-
-      // 몬스터볼 죽었나 체크
-      setInterval(pokeballDown, 10);
-
-      // 충돌 체크
-      setInterval(pikaDown, 10);
-
     });
   </script>
 </body>
-
 </html>
