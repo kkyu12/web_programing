@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <style>
+    img {
+      width: 200px;
+      height: 300px;
+      margin-top: 10px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    #release_date {
+      position: absolute;
+      top: 100px;
+      left: 250px;
+    }
+
+    #vote_count {
+      position: absolute;
+      top: 130px;
+      left: 250px;
+      background-color: slateblue;
+      color: white;
+      padding: 5px;
+    }
+
+    #vote_average{
+      position: absolute;
+      top: 130px;
+      left: 340px;
+      background-color: slateblue;
+      color: white;
+      padding: 5px;
+    }
+
+    #overview{
+      width: 600px;
+    }
+
+    #list {
+      background-color: rgb(197, 170, 247);
+      width: 600px;
+      padding: 10px;
+    }
+
+    #title {
+      color: rgb(106, 46, 161);
+    }
+  </style>
+</head>
+<body>
+  <script>
+    $(function () {
+      const queryString = window.location.search; 
+      // url 뒤 ? qnxj (ex: '?id=1')
+      urlParams = new URLSearchParams(queryString);
+      const id = urlParams.get('id');
+      loadData(id);
+      console.log(id);
+    });
+
+    function loadData(id) {
+      fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1`)
+        .then(response => response.json())
+        .then(jsonArray => {
+          let $list = $('#list');
+
+            $list.append(`<div id="title"><h1><b>${jsonArray.title}</b></h1></div>
+            <img src="https://image.tmdb.org/t/p/w500${jsonArray.poster_path}" alt="${jsonArray.title}">
+            <div id="release_date">개봉일 : ${jsonArray.release_date}</div>
+            <div id="vote_count">✓${jsonArray.vote_count}</div>
+            <div id="vote_average">★${jsonArray.vote_average}</div>
+            <div id="overview">${jsonArray.overview}</div>`);
+
+        });
+    }
+  </script>
+  <div id="list">
+    <!-- <div id="title"><h4><b>제목</b></h4></div>
+    <img src="https://image.tmdb.org/t/p/w500/8kZapNBZYGJu7AUbJVBDMmQgO1D.jpg" alt="dd">
+    <div id="release_date">개봉일</div>
+    <div id="vote_count">✓표수</div>
+    <div id="vote_average">★별점</div>
+    <div id="overview">overview : "전설의 트레저를 차지하기 위해 재벌 페어팩스(다니엘 래드클리프)는  유일한 단서를 알고 있는 베스트셀러 작가 로레타(산드라 블록)를 납치하게 된다.  어쩔 수 없는 비지니스 관계로 사라진 그녀를 찾아야만 하는 책 커버모델 앨런(채닝 테이텀)은  의문의 파트너(브래드 피트)와 함께 위험한 섬에서 그녀를 구하고 무사히 탈출해야만 하는데…  적과 자연의 위험이 도사리는 일촉즉발 화산섬."</div> -->
+  </div>
+</body>
+</html>
