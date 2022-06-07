@@ -9,11 +9,19 @@
 <body>
   <script>
     function loadDoc() {
+      console.log('start');
+
+      // 비동기 == 오래 걸리는 동작
       fetch('ajax_info.txt')
-        .then(response => response.text())
-        .then(text => {
+        //  화살표 함수 (arrow function)
+        // 람다식 (lamda exepression)
+        
+        .then(response => response.text()) // 기다렸다가 여기서 처리
+        .then(text => {                    // 기다렸다가 여기서 처리
           document.getElementById('demo').innerHTML = text;
+          console.log('!!!!!');
         });
+        console.log('end');
     }
 
     function loadDoc2() {
@@ -23,6 +31,7 @@
           console.log(json);
 
           let result = `${json.name} : ${json.skill}`;
+
           document.getElementById('demo').innerHTML = result;
           document.getElementById('json').innerHTML = JSON.stringify(json);
         });
