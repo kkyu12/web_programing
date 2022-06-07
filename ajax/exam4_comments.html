@@ -11,7 +11,8 @@
 <body>
   <script>
     $(function () {
-      const queryString = window.location.search;
+      const queryString = window.location.search; 
+      // url 뒤 ? qnxj (ex: '?id=1')
       urlParams = new URLSearchParams(queryString);
       const id = urlParams.get('id');
       loadData(id);
