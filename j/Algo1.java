@@ -8,17 +8,15 @@ public class Algo1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int input_number = sc.nextInt();
-		String[] s = new String[input_number];
-		for (int i = 0; i < input_number; i++) {
-			s[i] = sc.next();
-		}
-		System.out.print("Hello ");
-		for (int i = 0; i < s.length; i++) {
-			if (i == s.length - 1) {
-				System.out.print(s[i] + ".");
+		int inputNumber = sc.nextInt();
+		String a = "Hello ";
+		for (int i = 0; i < inputNumber; i++) {
+			if (i < inputNumber - 1) {
+				a += sc.next() + ",";
 			} else {
-				System.out.print(s[i] + ",");
+				a += sc.next() + ".";
 			}
 		}
+		System.out.println(a);
 	}
+}
